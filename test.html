@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="demo">
+  姓：<input type="text" placeholder="First Name"/> <br>
+  名：<input type="text" placeholder="Last Name"/><br>
+  姓名1(单向)：<input type="text" placeholder="Full Name1"/><br>
+  姓名2(单向)：<input type="text" placeholder="Full Name2"/><br>
+  姓名3(双向)：<input type="text" placeholder="Full Name3"/>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+  const obj = {
+    firstName: 'a',
+    lastName: 'b'
+  }
+  // obj.fullName = obj.firstName + '-' + obj.lastName
+  // console.log(obj.fullName)
+  Object.defineProperty(obj,'fullName',{
+    get () {
+      console.log("get()");
+      return this.firstName+'-'+this.lastName
+    },
+    set (v) {
+      console.log('set()'+v)
+     const names=v.split('-');
+     this.firstName=names[0]
+      this.lastName=names[1]
+    }
+  })
+  console.log(obj.fullName)
+  obj.fullName='c-d'
+  console.log(obj.firstName+'-'+obj.lastName+"=======")
+/*  obj.firstName='E'
+  obj.lastName='F'
+  console.log(obj.fullName+"------------")*/
+
+</script>
+
+<!--
+回调函数的3个问题
+1.什么时候调用
+2.作用是什么
+3.this是谁？
+-->
+</body>
+<style type="text/css">
+  #demo {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-top: 20%;
+  }
+</style>
+
+</html>
