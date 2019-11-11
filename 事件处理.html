@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+
+<div id="demo">
+  <h2>1.绑定监听</h2>
+  <button @click="test">test1</button>
+  <button @click="test2('hushuna')">test2</button>
+  <button @click="test3('xxx', $event)">test3</button>
+</div>
+
+
+<h2>2.事件修饰符</h2>
+<h2>3.按键修饰符</h2>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el:'#demo',
+    data:{
+
+    },
+    methods:{
+      test(event){
+        alert(event.target.textContent)
+      },
+      test2 (msg) {
+        alert(msg)
+      },
+      test3(msg,event){
+        alert(msg+",,"+event.target.textContent)
+      }
+    }
+  })
+</script>
+</body>
+</html>
