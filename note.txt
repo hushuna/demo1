@@ -7,3 +7,14 @@
 
 v-bind:指令
 methods:配置，包含了一些事件回调函数的对象
+
+
+vue的常用配置选项：
+el：
+data：
+computed：
+
+
+
+methods：
+watch：
