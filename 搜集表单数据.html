@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜集表单数据</title>
+</head>
+<body>
+
+<div id="demo">
+  <form action="/xxx">
+    用户名：<input type="text" v-model="user.username"><br>
+    密码：<input type="password" v-model="user.pwd"><br>
+    <input type="radio" name="sex" value="男" v-model="user.sex" checked="checked"> 男
+    <input type="radio" name="sex" value="女" v-model="user.sex"  checked="checked"> 女<br>
+
+    <input type="checkbox" name="qiu" value="篮球" v-model="user.likes"> 篮球
+    <input type="checkbox" name="qiu" value="足球" v-model="user.likes"> 足球
+    <input type="checkbox" name="qiu" value="乒乓" v-model="user.likes"> 足球<br>
+
+    <select v-model="user.cityId">
+      <option>未选择</option>
+      <option :value="city.id" v-for="(city,index) in allCity" :key="city.id">{{city.name}}</option>
+    </select><br>
+    <textarea rows="10"></textarea><br>
+    <input type="submit" value="注册" @click.prevent="register">
+  </form>
+</div>
+
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el:"#demo",
+    data:{
+      user:{
+        username:'',
+        pwd:'',
+        sex:"男",
+        likes:['乒乓'],
+        cityId:''
+      },
+      allCity:[
+        {id:1,name:"武汉"},
+        {id:2,name:"襄阳"},
+        {id:3,name:"深圳"}
+      ]
+    },
+    methods:{
+      register(){
+        console.log(this.user)
+      }
+    }
+  })
+</script>
+</body>
+</html>
